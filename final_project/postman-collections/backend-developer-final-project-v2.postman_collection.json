@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "8d8bb2b3-7d63-475c-88be-f001fbfb8b7f",
+		"name": "backend-developer-final-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10352308",
+		"_collection_link": "https://crimson-rocket-4222.postman.co/workspace/MoodUp~d4668e1e-12d5-474c-b07e-216f3afa1db9/collection/10352308-8d8bb2b3-7d63-475c-88be-f001fbfb8b7f?action=share&source=collection_link&creator=10352308"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "axios",
+					"item": [
+						{
+							"name": "/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/axios"
+							},
+							"response": []
+						},
+						{
+							"name": "/title/:title",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/axios/title/Things Fall Apart"
+							},
+							"response": []
+						},
+						{
+							"name": "/author/:author",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/axios/author/Chinua Achebe"
+							},
+							"response": []
+						},
+						{
+							"name": "/isbn/:isbn",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/axios/isbn/2"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000"
+					},
+					"response": []
+				},
+				{
+					"name": "/title/:title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/title/Things Fall Apart"
+					},
+					"response": []
+				},
+				{
+					"name": "/author/:author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/author/Chinua Achebe"
+					},
+					"response": []
+				},
+				{
+					"name": "/isbn/:isbn",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/isbn/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nebur_us\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/register"
+					},
+					"response": []
+				},
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nebur_us\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/customer/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJuZWJ1cl9jZyIsImlhdCI6MTcyNTU3ODA3NH0.lDtvLUu20oYcnuXId8pEryQpOmIAB85_zc0nOrniJZg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/review/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJuZWJ1cl9jZyIsImlhdCI6MTcyNTU3OTUyMH0.DxyjUsHBZWs6PeMGmt5UrOwt22sbNXPfZa0voTc8FcE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"review\": \"that's awesome !\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/customer/auth/review/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJuZWJ1cl9jZyIsImlhdCI6MTcyNTU3ODA3NH0.lDtvLUu20oYcnuXId8pEryQpOmIAB85_zc0nOrniJZg"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"that's awesome test !\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/customer/auth/review/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
