@@ -69,6 +69,10 @@ regdUsers.put("/auth/review/:isbn", (req, res) => {
   const { username } = req.user;
   const { review } = req.query;
 
+  if (!review) {
+    return res.status(400).json({ message: `Provide review text` });
+  }
+
   const book = books[isbn];
   if (!book) {
     return res
@@ -80,7 +84,6 @@ regdUsers.put("/auth/review/:isbn", (req, res) => {
     review,
   };
 
-  //Write your code here
   return res.status(200).json({
     message: `The review for the book with IBSN ${isbn} has been added/updated`,
   });

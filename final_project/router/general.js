@@ -48,7 +48,7 @@ publicUsers.get("/isbn/:isbn", function (req, res) {
 publicUsers.get("/author/:author", function (req, res) {
   const { author } = req.params;
   const booksByAuthor = Object.values(books).filter(
-    (book) => book.author === author
+    (book) => book.author.trim().toLowerCase() === author.trim().toLowerCase()
   );
   return res.status(200).json({
     booksByAuthor,
@@ -58,7 +58,9 @@ publicUsers.get("/author/:author", function (req, res) {
 // Get all books based on title
 publicUsers.get("/title/:title", function (req, res) {
   const { title } = req.params;
-  const booksByTitle = Object.values(books).filter((bk) => bk.title === title);
+  const booksByTitle = Object.values(books).filter(
+    (bk) => bk.title.trim().toLowerCase() === title.trim().toLowerCase()
+  );
   return res.status(200).json({
     booksByTitle,
   });
