@@ -56,7 +56,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000"
+						"url": "http://localhost:3000/"
 					},
 					"response": []
 				},
@@ -159,16 +159,26 @@
 						},
 						"method": "PUT",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"review\": \"that's awesome !\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						"url": {
+							"raw": "http://localhost:3000/customer/auth/review/1?review=that's awesome !",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"auth",
+								"review",
+								"1"
+							],
+							"query": [
+								{
+									"key": "review",
+									"value": "that's awesome !"
 								}
-							}
-						},
-						"url": "http://localhost:3000/customer/auth/review/1"
+							]
+						}
 					},
 					"response": []
 				},
