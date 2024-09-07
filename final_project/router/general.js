@@ -24,12 +24,12 @@ publicUsers.post("/register", (req, res) => {
 
   return res
     .status(200)
-    .json({ message: "User successfully registered. Now you can login" });
+    .json({ message: "Customer successfully registered. Now you can login" });
 });
 
 // Get the book list available in the shop
 publicUsers.get("/", function (req, res) {
-  return res.status(200).json(books);
+  return res.status(200).json({ books });
 });
 
 // Get book details based on ISBN
@@ -47,17 +47,21 @@ publicUsers.get("/isbn/:isbn", function (req, res) {
 // Get book details based on author
 publicUsers.get("/author/:author", function (req, res) {
   const { author } = req.params;
-  const authorBooks = Object.values(books).filter(
+  const booksByAuthor = Object.values(books).filter(
     (book) => book.author === author
   );
-  return res.status(200).json(authorBooks);
+  return res.status(200).json({
+    booksByAuthor,
+  });
 });
 
 // Get all books based on title
 publicUsers.get("/title/:title", function (req, res) {
   const { title } = req.params;
-  const book = Object.values(books).find((bk) => bk.title === title);
-  return res.status(200).json(book);
+  const booksByTitle = Object.values(books).filter((bk) => bk.title === title);
+  return res.status(200).json({
+    booksByTitle,
+  });
 });
 
 //  Get book review

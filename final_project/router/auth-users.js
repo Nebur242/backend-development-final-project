@@ -60,14 +60,14 @@ regdUsers.post("/login", (req, res) => {
     username,
   };
 
-  return res.status(200).send({ message: "User successfully logged in" });
+  return res.status(200).json({ message: "Costumer successfully logged in" });
 });
 
 // Add a book review
 regdUsers.put("/auth/review/:isbn", (req, res) => {
   const { isbn } = req.params;
   const { username } = req.user;
-  const { review } = req.body;
+  const { review } = req.query;
 
   const book = books[isbn];
   if (!book) {
@@ -81,7 +81,9 @@ regdUsers.put("/auth/review/:isbn", (req, res) => {
   };
 
   //Write your code here
-  return res.status(200).json({ message: "Review added successfully" });
+  return res.status(200).json({
+    message: `The review for the book with IBSN ${isbn} has been added/updated`,
+  });
 });
 
 // Delete a book reviews
@@ -102,7 +104,9 @@ regdUsers.delete("/auth/review/:isbn", (req, res) => {
 
   delete book.reviews[username];
 
-  return res.status(200).json({ message: "Review deleted successfully" });
+  return res.status(200).json({
+    message: `Review for the isbn ${isbn} posted by the user ${username} was deleted`,
+  });
 });
 
 module.exports.authenticated = regdUsers;
